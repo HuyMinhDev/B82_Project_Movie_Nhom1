@@ -1,8 +1,14 @@
-import useRouterElements from './routes/elements';
+import Spinner from "./components/layouts/Spinner/Spinner";
+import useRouterElements from "./routes/elements";
 
 function App() {
   const elements = useRouterElements();
-  return elements;
+  return (
+    <>
+      <Spinner />
+      {elements}
+    </>
+  );
 }
 
 export default App;

@@ -1,14 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
+const loginJson = localStorage.getItem("user");
+const initialState = {
+  loginData: loginJson ? JSON.parse(loginJson) : null || null,
+};
 const userSlice = createSlice({
-  name: 'user',
-  initialState: null,
+  name: "user",
+  initialState,
   reducers: {
     setUser: (state, action) => {
-      return action.payload;
+      state.loginData = action.payload;
     },
-    clearUser: () => {
-      return null;
+    clearUser: (state) => {
+      state.loginData = null;
     },
   },
 });
