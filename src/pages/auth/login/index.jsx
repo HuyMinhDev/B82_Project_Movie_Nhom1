@@ -9,7 +9,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-
+import { toast } from "react-toastify";
 export default function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -25,6 +25,7 @@ export default function Login() {
     onSuccess: (data) => {
       localStorage.setItem("user", JSON.stringify(data));
       dispatch(setUser(data));
+      toast.success("Đăng nhập thành công");
       if (data.maLoaiNguoiDung === ROLE.ADMIN) {
         navigate(PATH.DASHBOARD);
       }
@@ -33,7 +34,10 @@ export default function Login() {
       }
     },
     onError: (error) => {
-      console.error("Login failed:", error);
+      console.log(">>>>Check lỗi khi đăng nhập: ", error);
+      console.log(">>>>Check lỗi khi đăng nhập: ", error.response.data.content);
+      let errorMessage = error.response.data.content;
+      toast.error(errorMessage);
     },
   });
 
