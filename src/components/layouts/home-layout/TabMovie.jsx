@@ -15,6 +15,8 @@ const TabMovie = () => {
       .layHeThongRap()
       .then((result) => {
         setHeThongRap(result.data.content);
+        console.log(">>>>Check lấy hệ thống rạp phim: ", result);
+        console.log(">>>>Check lấy hệ thống rạp phim: ", result.data.content);
       })
       .catch((err) => {
         console.log("Lỗi khi lấy cụm rạp", err);

@@ -36,47 +36,47 @@ export default function DetailPage() {
   const params = useParams();
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  //   dispatch(turnOnLoading());
-  //   movieService
-  //     .layThongTinPhim(params.id)
-  //     .then((res) => setMovieInfo(res.data.content))
-  //     .catch(console.error)
-  //     .finally(() => {
-  //       dispatch(turnOffLoading());
-  //     });
-  //   dispatch(turnOnLoading());
-  //   movieService
-  //     .layHeThongRap()
-  //     .then((res) => setHeThongRap(res.data.content))
-  //     .catch(console.error)
-  //     .finally(() => {
-  //       dispatch(turnOffLoading());
-  //     });
-  // }, [params.id]);
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        window.scrollTo(0, 0);
-        dispatch(turnOnLoading());
-
-        const [res1, res2] = await Promise.all([
-          movieService.layThongTinPhim(params.id),
-          movieService.layHeThongRap(),
-        ]);
-
-        setMovieInfo(res1.data.content);
-        setHeThongRap(res2.data.content);
-      } catch (error) {
-        console.error(error);
-      } finally {
+    window.scrollTo(0, 0);
+    dispatch(turnOnLoading());
+    movieService
+      .layThongTinPhim(params.id)
+      .then((res) => setMovieInfo(res.data.content))
+      .catch(console.error)
+      .finally(() => {
         dispatch(turnOffLoading());
-      }
-    };
-
-    fetchData();
+      });
+    dispatch(turnOnLoading());
+    movieService
+      .layHeThongRap()
+      .then((res) => setHeThongRap(res.data.content))
+      .catch(console.error)
+      .finally(() => {
+        dispatch(turnOffLoading());
+      });
   }, [params.id]);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       window.scrollTo(0, 0);
+  //       dispatch(turnOnLoading());
+
+  //       const [res1, res2] = await Promise.all([
+  //         movieService.layThongTinPhim(params.id),
+  //         movieService.layHeThongRap(),
+  //       ]);
+  //       console.log(">>>Checl detailphim: ", res1);
+  //       setMovieInfo(res1.data.content);
+  //       setHeThongRap(res2.data.content);
+  //     } catch (error) {
+  //       console.error(error);
+  //     } finally {
+  //       dispatch(turnOffLoading());
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, [params.id]);
 
   const handleLichChieuClick = (id) => {
     navigate(`/ticket-room/${id}`);
