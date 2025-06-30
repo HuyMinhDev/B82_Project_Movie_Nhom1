@@ -41,6 +41,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { toast } from "react-toastify";
 
 export default function MovieManagement() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -49,6 +50,7 @@ export default function MovieManagement() {
   const { mutate: handleAddMovie, isPending: isAdding } = useMutation({
     mutationFn: (formData) => addMovieApi(formData),
     onSuccess: (response) => {
+      toast.success("Thêm Phim Thành Công!");
       console.log("Add moive success: ", response);
       refetch();
       setIsOpen(false);
@@ -60,6 +62,7 @@ export default function MovieManagement() {
   const { mutate: handleUpdateMovie, isPending: isUpdating } = useMutation({
     mutationFn: (formData) => updateMovieApi(formData),
     onSuccess: (response) => {
+      toast.success("Update Phim Thành Công!");
       console.log("Update moive success: ", response);
       refetch();
       setIsOpen(false);
@@ -72,6 +75,7 @@ export default function MovieManagement() {
     mutationFn: (maPhim) => deleteMovieApi(maPhim),
     onSuccess: () => {
       refetch();
+      toast.success("Xóa Phim Thành Công!");
     },
     onError: (error) => {
       console.error("Delete movie failed: ", error);
