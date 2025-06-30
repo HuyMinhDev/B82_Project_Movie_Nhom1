@@ -1,8 +1,16 @@
-import useRouterElements from './routes/elements';
-
+import { ToastContainer } from "react-toastify";
+import Spinner from "./components/layouts/Spinner/Spinner";
+import useRouterElements from "./routes/elements";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const elements = useRouterElements();
-  return elements;
+  return (
+    <>
+      <Spinner />
+      <ToastContainer />
+      {elements}
+    </>
+  );
 }
 
 export default App;

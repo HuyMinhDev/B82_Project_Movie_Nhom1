@@ -1,0 +1,113 @@
+.header-logo {
+  padding-top: 5px;
+}
+
+.home-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+}
+.our-partner {
+  .keen-slider {
+    .bg-item {
+      min-height: 275px !important;
+      background: transparent;
+      border: 2px dashed white;
+      cursor: pointer;
+      img {
+        width: 80%;
+        height: 80%;
+        border-radius: 15px;
+      }
+    }
+  }
+  .color-text {
+    color: #e50914;
+    font-size: 30px;
+  }
+}
+.bg-footer {
+  background: #141314;
+  .bg-footer-top {
+    input {
+      background: #000;
+      color: white;
+    }
+    button {
+      background: #e50914;
+    }
+    .list-item {
+      li {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        .list-item-icon {
+          color: #e50914;
+          font-weight: bold;
+        }
+        a {
+          transition: color 0.4s ease;
+
+          &:hover {
+            color: #e50914;
+          }
+        }
+      }
+    }
+    .subscribe-item {
+      input {
+        outline: #e50914;
+      }
+    }
+  }
+  .bg-footer-end {
+    border-top: 1px solid #262525;
+    p {
+      span:last-child {
+        color: #e50914;
+      }
+    }
+    .bg-footer-item {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+#ungDung {
+  padding: 50px 0 80px 0;
+  background: url(/images/AppPromoSection/background1.jpg) no-repeat center
+    center;
+  background-size: cover;
+  background-color: #fff; /* fallback màu nền nếu ảnh chưa load */
+  .phone-item {
+    width: 50%;
+  }
+}
+button.slick-arrow.slick-prev {
+  padding: 25px;
+  background: #e50914;
+  color: white;
+  border-radius: 50%;
+}
+.ant-carousel .slick-prev::after {
+  position: absolute;
+  content: "";
+  left: 21px;
+  top: 19px;
+}
+button.slick-arrow.slick-next {
+  padding: 25px;
+  background: #e50914;
+  color: white;
+  border-radius: 50%;
+}
+.ant-carousel .slick-next::after {
+  position: absolute;
+  content: "";
+  left: 18px;
+  top: 19px;
+}
